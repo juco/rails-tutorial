@@ -1,4 +1,4 @@
 ruby-tutorial
 =============
 
-Working through the tut on http://ruby.railstutorial.org/
+Working through the awesome rails tutorial from http://ruby.railstutorial.org/
