@@ -12,6 +12,21 @@ describe "Static pages" do
     it { should have_selector('title', text: full_title()) }
 
     it { should_not have_selector('title', text: '| Home') }
+
+    it "Should redirect to the help page when the help link is clicked" do
+      click_link "Help"
+      page.should have_selector('h1', text: 'Help')
+    end
+
+    it "Should redirect to the about page when the about link is clicked" do
+      click_link "About"
+      page.should have_selector('h1', text: 'About Us')
+    end
+
+    it "Should redirect to the contact page when the contact link is clicked" do
+      click_link "Contact"
+      page.should have_selector('h1', text: 'Contact')
+    end
   end
 
   describe "Help page" do
