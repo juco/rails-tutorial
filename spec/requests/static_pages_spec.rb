@@ -3,7 +3,6 @@ require 'spec_helper'
 describe "Static pages" do
 
   describe "Home page" do
-
     before { visit root_path }
     subject { page }
 
@@ -30,7 +29,6 @@ describe "Static pages" do
   end
 
   describe "Help page" do
-
     before { visit help_path }
     subject { page }
 
@@ -44,7 +42,6 @@ describe "Static pages" do
     subject { page }
 
     it  { should have_selector('h1', text: 'About Us') }
-
     it { should have_selector('title', text: full_title('About Us')) }
   end
 
@@ -53,7 +50,7 @@ describe "Static pages" do
       subject { page }
 
       it { should have_selector('h1', text: 'Contact') }
-
       it { should have_selector('title', text: full_title('Contact')) }
   end
+  
 end
