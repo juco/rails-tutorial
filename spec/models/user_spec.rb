@@ -58,4 +58,14 @@ describe User do
       end
     end
   end
+
+  describe "When an email address is already taken" do
+    before do
+      duplicate_user = @user.dup
+      duplicate_user.email = @user.email.upcase
+      duplicate_user.save
+    end
+
+    it { should_not be_valid }
+  end
 end
