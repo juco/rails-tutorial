@@ -26,6 +26,11 @@ describe "Static pages" do
       click_link "Contact"
       page.should have_selector('h1', text: 'Contact')
     end
+
+    it "should redirect to the signup page when the signup link is cliked" do
+      click_link "Sign up now!"
+      page.should have_selector('h1', text: 'Sign up')
+    end
   end
 
   describe "Help page" do
