@@ -103,11 +103,11 @@ describe User do
     it { should_not be_valid }
   end
 
-  describe "Return value of authenticate method" do
+  describe "When the signup form is submitted" do
     before { @user.save }
     let(:found_user) { User.find_by_email(@user.email) }
 
-    describe "with valid password" do
+    describe "with valid password should save" do
       it { should == found_user.authenticate(@user.password) }
     end
 
