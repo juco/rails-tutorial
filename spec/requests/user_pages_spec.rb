@@ -28,6 +28,27 @@ describe "User pages" do
         	it "should not increment the user count with no values" do
         		expect { click_button submit }.not_to change(User, :count)
         	end
+
+            describe "after clicking submit should display errros" do
+                before { click_button submit }
+
+                it { should have_selector('title', text: 'Sign up') }
+                it { should have_content 'error' }
+            end
+
+            describe "for the email address" do
+                before do
+                    fill_in "Name", with: "Example user"
+                    fill_in "Email", with: "foo@invalid" # Invalid email
+                    fill_in "Password", with: "foobar"
+                    fill_in "Confirmation", with: "foobar"
+                end
+
+                it "should display an error regarding the email" do
+                    click_button submit
+                    page.should have_content "Email is invalid"
+                end
+            end
         end
 
         describe "with valid data" do
