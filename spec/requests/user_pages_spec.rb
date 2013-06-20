@@ -21,46 +21,53 @@ describe "User pages" do
 
     describe "signup" do
 
-        before { visit signup_path }
-        let(:submit) { "Create my account" }
+      before { visit signup_path }
+      let(:submit) { "Create my account" }
 
-        describe "with invalid data" do
-        	it "should not increment the user count with no values" do
-        		expect { click_button submit }.not_to change(User, :count)
-        	end
+      describe "with invalid data" do
+      	it "should not increment the user count with no values" do
+      		expect { click_button submit }.not_to change(User, :count)
+      	end
 
-            describe "after clicking submit should display errros" do
-                before { click_button submit }
+        describe "after clicking submit should display errros" do
+          before { click_button submit }
 
-                it { should have_selector('title', text: 'Sign up') }
-                it { should have_content 'error' }
-            end
-
-            describe "for the email address" do
-                before do
-                    fill_in "Name", with: "Example user"
-                    fill_in "Email", with: "foo@invalid" # Invalid email
-                    fill_in "Password", with: "foobar"
-                    fill_in "Confirmation", with: "foobar"
-                end
-
-                it "should display an error regarding the email" do
-                    click_button submit
-                    page.should have_content "Email is invalid"
-                end
-            end
+          it { should have_selector('title', text: 'Sign up') }
+          it { should have_content 'error' }
         end
 
-        describe "with valid data" do
-            before do
-                fill_in "Name", with: "Example user"
-                fill_in "Email", with: "julian@juco.co.uk"
-                fill_in "Password", with: "foobar"
-                fill_in "Confirmation", with: "foobar"
-            end
-            it "should increment the user count" do
-                expect { click_button submit }.to change(User, :count).by(1)
-            end
+        describe "for the email address" do
+          before do
+            fill_in "Name", with: "Example user"
+            fill_in "Email", with: "foo@invalid" # Invalid email
+            fill_in "Password", with: "foobar"
+            fill_in "Confirmation", with: "foobar"
+          end
+
+          it "should display an error regarding the email" do
+            click_button submit
+            page.should have_content "Email is invalid"
+          end
+        end
+      end
+
+      describe "with valid data" do
+        before do
+          fill_in "Name", with: "Example user"
+          fill_in "Email", with: "julian@juco.co.uk"
+          fill_in "Password", with: "foobar"
+          fill_in "Confirmation", with: "foobar"
+        end
+
+        describe "after saving the user"
+          it "should increment the user count" do
+            expect { click_button submit }.to change(User, :count).by(1)
+          end
+
+          it "should have the signout link" do
+            click_button submit
+            page.should have_link "Sign out"
+          end
         end
     end
 end

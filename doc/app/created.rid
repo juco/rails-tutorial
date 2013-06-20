@@ -1,0 +1,11 @@
+Mon, 10 Jun 2013 18:21:03 +0100
+doc/README_FOR_APP	Mon, 29 Apr 2013 08:13:07 +0100
+app/controllers/application_controller.rb	Mon, 29 Apr 2013 08:13:07 +0100
+app/controllers/sessions_controller.rb	Sun, 09 Jun 2013 00:04:32 +0100
+app/controllers/static_pages_controller.rb	Tue, 07 May 2013 18:42:06 +0100
+app/controllers/users_controller.rb	Fri, 07 Jun 2013 08:40:51 +0100
+app/helpers/application_helper.rb	Tue, 07 May 2013 18:42:06 +0100
+app/helpers/sessions_helper.rb	Fri, 07 Jun 2013 17:21:02 +0100
+app/helpers/static_pages_helper.rb	Fri, 07 Jun 2013 13:40:40 +0100
+app/helpers/users_helper.rb	Fri, 07 Jun 2013 13:43:06 +0100
+app/models/user.rb	Fri, 07 Jun 2013 14:07:06 +0100
