@@ -64,7 +64,7 @@ describe "User pages" do
             expect { click_button submit }.to change(User, :count).by(1)
           end
 
-          it "should have the signout link" do
+          it "should have the signup link" do
             click_button submit
             page.should have_link "Sign out"
           end
